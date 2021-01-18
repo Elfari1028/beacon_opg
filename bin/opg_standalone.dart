@@ -145,7 +145,7 @@ void main(List<String> args) {
     // Process results.
     // line = line.replaceAll("\r", "");
     lines += line;
-    stdout.write(line);
+    // stdout.write(line);
   }, onDone: () {
     original = lines.split('');
     proc();
