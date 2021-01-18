@@ -20,7 +20,15 @@ List<String> characterNumList = [
   'E'
 ];
 int top = 0, lineLen = 0;
-List<List<int>> prior = [];
+List<List<int>> prior = [
+  [0, 0, 0, 0, 0, 0, 0],
+  [0, 1, -1, -1, -1, 1, 1],
+  [0, 1, 1, -1, -1, 1, 1],
+  [0, 1, 1, 2, 2, 1, 1],
+  [0, -1, -1, -1, -1, 0, 2],
+  [0, 1, 1, 2, 2, 1, 1],
+  [0, -1, -1, -1, -1, 2, 2],
+];
 
 int charToint(String c) {
   for (int i = 0; i <= characterNum; i++) {
@@ -36,6 +44,7 @@ String intTochar(int i) {
 }
 
 void pushStack(int newStackNum) {
+  stack.add(null);
   stack[top] = newStackNum;
   top++;
 }
@@ -145,6 +154,7 @@ void main(List<String> args) {
 
 int proc() {
   lineLen = 1;
+  line.add(null);
   line[0] = '#';
   for (int i = 0; i < original.length; i++) {
     if (original[i] != '+' &&
@@ -155,10 +165,13 @@ int proc() {
         original[i] != 'z') {
       continue;
     }
+    line.add(null);
     line[lineLen] = original[i];
     lineLen++;
   }
   //在首尾分别添加#
+  line.add(null);
+  line.add(null);
   line[0] = '#';
   line[lineLen] = '#';
   line[lineLen + 1] = '\n';
