@@ -3,5 +3,5 @@
 image = { source = "dockerfile", path = ".", tag = "opg" }
 
 run = [
-  "dart ./bin/beacon_opg.dart $input",
+  "dart ./bin/opg_standalone.dart $input",
 ]
